@@ -1,0 +1,13 @@
+@media (min-width: 600px) {
+    .trip-container {
+        display: flex;
+        flex-direction: row;
+        max-height: 250px;
+    }
+
+    .trip-data {
+        display: flex;
+        flex-direction: column;
+    }
+
+}

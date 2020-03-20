@@ -1,0 +1,41 @@
+@media (max-width: 599px) {
+    .trip-container {
+        display: flex;
+        flex-direction: column;
+        max-height: 200px;
+    }
+
+    .trip-data {
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
+//* { border: 1px solid black; }
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+.label-input {
+    display: grid;
+    grid-template-columns: 40% auto;
+    align-items: center;
+
+    label {
+        text-align: right;
+    }
+
+    input {
+        //border: none;
+    }
+}
+
+.trip-image {
+    height: 100%;
+}
+

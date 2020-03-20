@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Travel Journal</title>
+        <link rel="stylesheet" href="/styles/base.scss">
+        <link rel="stylesheet" href="/styles/header.scss">
+        <link rel="stylesheet" href="/styles/form.scss">
+        <link rel="stylesheet" href="/styles/footer.scss">
+    </head>
+
+    <body>
+
+        <header>
+            <h1>My Travel Journal</h1>
+        </header>
+
+        <main>
+            <div class="trip-container">
+                <div class="trip-image">
+                    <img src="">
+                </div>
+                <div class="trip-data">
+                    <div class="label-input">
+                        <label for="city-input">My trip to</label>
+                        <input id="city-input" type="text" name="city-input" value="" placeholder="City">
+                    </div>
+                    <div class="label-input">
+                        <label for="date-input">on</label>
+                        <input id="date-input" type="text" name="date-input" value="" placeholder="DD.MM.YYYY">
+                    </div>
+                    <button id="save-trip" name="" onclick="return Client.handleSubmit(event)">Save trip</button>
+                </div>
+            </div>
+        </main>
+
+    </body>
+</html>
