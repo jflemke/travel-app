@@ -42,4 +42,18 @@ async function getImageForCity(city) {
     }
 }
 
-export { getCoordsFromLocation, getImageForCity, getWeatherForCoords }
+async function postTrip(city, forecast, dateStr) {
+    const date = getDateFromString(dateStr);
+    const url = `http://localhost:8085/trip`;
+
+    await fetch(url, {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({city: city, forecast: forecast, date: date})
+    });
+}
+
+export { getCoordsFromLocation, getImageForCity, getWeatherForCoords, postTrip }

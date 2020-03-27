@@ -20,6 +20,10 @@ body {
     min-height: 100vh;
 }
 
+main {
+    margin: 0 24px 0 24px;
+}
+
 .trip-data {
     display: flex;
     flex-direction: column;
@@ -36,6 +40,17 @@ body {
 
     input {
         border: none;
+    }
+}
+
+.weather-data {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    #weather-icon {
+        height: 32px;
+        min-width: 32px;
     }
 }
 

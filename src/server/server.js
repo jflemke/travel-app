@@ -10,6 +10,8 @@ const request = require('request');
 const DS_KEY = process.env.DS_API_KEY;
 const PB_KEY = process.env.PB_API_KEY;
 
+const trip = {};
+
 const app = express();
 
 /* Middleware*/
@@ -42,6 +44,10 @@ app.get('/test', function (req, res) {
 
 app.post('/trip', function (req, res) {
     const reqJSON = req.body;
+
+    trip.city = reqJSON.city;
+    trip.date = reqJSON.date;
+    trip.forecast = reqJSON.forecast;
 });
 
 // Getting back weather data from
@@ -54,6 +60,7 @@ app.get('/weather', function (req, res) {
 
     request(url, {json: true}, (err, res2, body) => {
         if (err) {
+            res.status(500).send('Something went wrong');
             return console.log(err);
         }
         res.send(body);
@@ -67,6 +74,7 @@ app.get('/image/:city', function (req, res) {
 
     request(url, {json: true}, (err, res2, body) => {
         if (err) {
+            res.status(500).send('Something went wrong');
             return console.log(err);
         }
         res.send(body.hits[0]);

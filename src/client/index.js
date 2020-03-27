@@ -1,7 +1,7 @@
 import { isValidDate } from './js/dateChecker'
 import { handleSubmit } from './js/formHandler'
-import { getCoordsFromLocation, getImageForCity, getWeatherForCoords } from './js/apis';
-import { getDateFromString } from "./js/helper";
+import { getCoordsFromLocation, getImageForCity, getWeatherForCoords, postTrip } from './js/apis';
+import { getCodeForWeathericon, getDateFromString } from "./js/helper";
 
 import './styles/base.scss'
 import './styles/base_desktop.scss'
@@ -14,9 +14,11 @@ document.getElementById('save-trip').addEventListener('click', handleSubmit);
 
 export {
     isValidDate,
+    getCodeForWeathericon,
     getCoordsFromLocation,
     getImageForCity,
     getWeatherForCoords,
     getDateFromString,
-    handleSubmit
+    handleSubmit,
+    postTrip
 }
