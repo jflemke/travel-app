@@ -8,6 +8,9 @@ import './styles/base_desktop.scss'
 import './styles/form.scss'
 import './styles/footer.scss'
 import './styles/header.scss'
+import './styles/typography.scss'
+
+document.getElementById('save-trip').addEventListener('click', handleSubmit);
 
 export {
     isValidDate,

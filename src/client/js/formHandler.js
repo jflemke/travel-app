@@ -28,7 +28,7 @@ function handleSubmit(event) {
         return getWeatherForCoords(res.lng, res.lat, date);
     })
     .then(res => {
-        document.getElementById('weather').innerHTML = res.currently.summary;
+        document.getElementById('weather').value = res.currently.summary;
         return getImageForCity(city);
     })
     .then(res => {

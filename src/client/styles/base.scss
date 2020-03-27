@@ -5,9 +5,9 @@
         max-height: 200px;
     }
 
-    .trip-data {
-        display: flex;
-        flex-direction: column;
+    #city-image {
+        min-width: 120px;
+        max-width: 95%;
     }
 
 }
@@ -20,6 +20,10 @@ body {
     min-height: 100vh;
 }
 
+.trip-data {
+    display: flex;
+    flex-direction: column;
+}
 
 .label-input {
     display: grid;
@@ -35,8 +39,17 @@ body {
     }
 }
 
-#city-image {
-    min-width: 240px;
-    max-width: 240px;
+#save-trip {
+    margin: 0 20px 0 20px;
+    background-color: #4CAF60;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    font-size: 16px;
+
+    &:hover {
+        background-color: #156325;
+    }
 }
+
 

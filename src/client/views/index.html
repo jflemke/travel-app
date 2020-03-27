@@ -3,10 +3,6 @@
     <head>
         <meta charset="utf-8">
         <title>Travel Journal</title>
-        <link rel="stylesheet" href="/styles/base.scss">
-        <link rel="stylesheet" href="/styles/header.scss">
-        <link rel="stylesheet" href="/styles/form.scss">
-        <link rel="stylesheet" href="/styles/footer.scss">
     </head>
 
     <body>
@@ -27,11 +23,12 @@
                     </div>
                     <div class="label-input">
                         <label for="date-input">on</label>
-                        <input id="date-input" type="text" name="date-input" value="25.03.2020" placeholder="DD.MM.YYYY">
+                        <input id="date-input" type="text" name="date-input" value="30.03.2020" placeholder="DD.MM.YYYY">
                     </div>
-                    <button id="save-trip" name="" onclick="return Client.handleSubmit(event)">Save trip</button>
-                    <div class="weather">
-                        <label id="weather"></label>
+                    <button id="save-trip">Save trip</button>
+                    <div class="label-input">
+                        <label for="weather">Weather forecast:</label>
+                        <input id="weather" name="weather" value="...">
                     </div>
                 </div>
             </div>
