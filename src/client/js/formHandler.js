@@ -1,4 +1,4 @@
-import {getCoordsFromLocation} from "./apis";
+import {getCoordsFromLocation, getImageForCity, getWeatherForCoords} from "./apis";
 import {isValidDate} from "./dateChecker";
 
 function handleSubmit(event) {
@@ -7,7 +7,7 @@ function handleSubmit(event) {
     console.log('Save clicked...working...');
 
     // check what text was put into the form field
-    let date = document.getElementById('date-input').value;
+    const date = document.getElementById('date-input').value;
 
     // validate date
     if(!isValidDate(date)) {
@@ -25,7 +25,14 @@ function handleSubmit(event) {
     // look for Coordinates, then for weather and then a picture
     getCoordsFromLocation(city)
     .then(res => {
-        console.log(`City: ${res.name}, Long: ${res.lng}, Lat: ${res.lat}`);
+        return getWeatherForCoords(res.lng, res.lat, date);
+    })
+    .then(res => {
+        document.getElementById('weather').innerHTML = res.currently.summary;
+        return getImageForCity(city);
+    })
+    .then(res => {
+       document.getElementById('city-image').src = res.webformatURL;
     });
 
 }

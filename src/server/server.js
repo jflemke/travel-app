@@ -4,6 +4,11 @@ dotenv.config();
 const path = require('path');
 const express = require('express');
 const mockAPIResponse = require('./mockAPI.js');
+const request = require('request');
+
+// set API credentials
+const DS_KEY = process.env.DS_API_KEY;
+const PB_KEY = process.env.PB_API_KEY;
 
 const app = express();
 
@@ -26,7 +31,7 @@ app.get('/', function (req, res) {
 });
 
 // designates what port the app will listen to for incoming requests
-const port = 8080;
+const port = 8085;
 app.listen(port, function () {
     console.log(`Example app listening on port ${port}!`);
 });
@@ -37,4 +42,34 @@ app.get('/test', function (req, res) {
 
 app.post('/trip', function (req, res) {
     const reqJSON = req.body;
+});
+
+// Getting back weather data from
+app.get('/weather', function (req, res) {
+    const lat = req.query.lat;
+    const lng = req.query.lng;
+    const date = req.query.date;
+
+    const url = `https://api.darksky.net/forecast/${DS_KEY}/${lat},${lng},${date}`;
+
+    request(url, {json: true}, (err, res2, body) => {
+        if (err) {
+            return console.log(err);
+        }
+        res.send(body);
+    })
+});
+
+// Getting a image url for a city
+app.get('/image/:city', function (req, res) {
+    const city = encodeURI(req.params.city);
+    const url = `https://pixabay.com/api/?key=${PB_KEY}&q=${city}&image_type=photo`;
+
+    request(url, {json: true}, (err, res2, body) => {
+        if (err) {
+            return console.log(err);
+        }
+        res.send(body.hits[0]);
+    });
+
 });

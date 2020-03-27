@@ -1,4 +1,4 @@
-const DS_KEY = 'xxx';
+import {getDateFromString} from "./helper";
 
 async function getCoordsFromLocation(inputText) {
 
@@ -17,8 +17,29 @@ async function getCoordsFromLocation(inputText) {
 
 }
 
-async function getWeatherForCoords(lng, lat, date) {
+async function getWeatherForCoords(lng, lat, dateStr) {
+    const date = getDateFromString(dateStr);
 
+    const dateISO = date.toISOString().split('.')[0]+"Z";
+    const url = `http://localhost:8085/weather?lat=${lat}&lng=${lng}&date=${dateISO}`;
+    console.log(url);
+    const response = await fetch(url);
+    try {
+        return await response.json();
+    } catch(error) {
+        console.error(error);
+    }
 }
 
-export { getCoordsFromLocation }
+async function getImageForCity(city) {
+    const url = `http://localhost:8085/image/${city}`;
+    console.log(url);
+    const response = await fetch(url);
+    try {
+        return await response.json();
+    } catch(error) {
+        console.error(error);
+    }
+}
+
+export { getCoordsFromLocation, getImageForCity, getWeatherForCoords }

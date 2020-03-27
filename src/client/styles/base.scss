@@ -31,11 +31,12 @@ body {
     }
 
     input {
-        //border: none;
+        border: none;
     }
 }
 
-.trip-image {
-    height: 100%;
+#city-image {
+    min-width: 240px;
+    max-width: 240px;
 }
 
