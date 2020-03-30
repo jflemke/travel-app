@@ -14,3 +14,6 @@ Therefore three APIs are used:
 - Or as shortcut run `npm run start`.
 
 Or you can start a dev server with `npm run build-dev`. 
+
+## Additionla infos
+I chose as additional task to display icons for the weather forecast.
