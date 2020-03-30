@@ -31,6 +31,14 @@ module.exports = {
             filename: "./index.html",
         }),
         new MiniCssExtractPlugin({filename: '[name].css'}),
-        new GenerateSW()
+        new GenerateSW({
+            runtimeCaching: [
+                {
+                    // You can use a RegExp as the pattern:
+                    urlPattern: /\.jpg$/,
+                    handler: 'CacheFirst',
+                },
+            ]
+        })
     ]
 }
